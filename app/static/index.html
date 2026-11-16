@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SocialFetch</title>
+  <meta name="description" content="Pobieraj filmy i zdjęcia z Instagrama, TikToka i X bez znaku wodnego.">
+  <meta name="theme-color" content="#0d0d12" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f6f5fb" media="(prefers-color-scheme: light)">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="brand">
+      <img src="/icon.svg" alt="" width="40" height="40">
+      <h1>SocialFetch</h1>
+    </header>
+    <p class="tagline">Instagram · TikTok · X. Bez znaku wodnego, bez reklam.</p>
+
+    <!-- login -->
+    <section id="login" class="card" hidden>
+      <form id="login-form" autocomplete="on">
+        <label for="password">Hasło</label>
+        <div class="row">
+          <input id="password" name="password" type="password" autocomplete="current-password" required>
+          <button class="btn primary" type="submit">Wejdź</button>
+        </div>
+        <p id="login-error" class="error" hidden></p>
+      </form>
+    </section>
+
+    <!-- app -->
+    <section id="app" hidden>
+      <form id="search" class="search">
+        <div class="field">
+          <input id="url" type="url" inputmode="url" placeholder="Wklej link…" autocomplete="off" required>
+          <button id="paste" class="icon-btn" type="button" title="Wklej ze schowka" aria-label="Wklej ze schowka">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M16 3h-1.2A3 3 0 0 0 12 1a3 3 0 0 0-2.8 2H8a3 3 0 0 0-3 3v13a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3Zm-4 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2Zm5 16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1v1a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V5h1a1 1 0 0 1 1 1Z"/></svg>
+          </button>
+        </div>
+        <button id="go" class="btn primary wide" type="submit">Szukaj</button>
+      </form>
+
+      <p id="error" class="error banner" role="alert" hidden></p>
+      <div id="loading" class="card skeleton" hidden aria-label="Ładowanie">
+        <div class="sk sk-media"></div><div class="sk sk-line"></div><div class="sk sk-line short"></div>
+      </div>
+      <div id="result"></div>
+    </section>
+  </main>
+
+  <template id="item-tpl">
+    <article class="item">
+      <div class="media">
+        <img alt="" loading="lazy" decoding="async">
+        <span class="badge"></span>
+      </div>
+      <div class="controls">
+        <select class="quality" aria-label="Jakość"></select>
+        <a class="btn primary dl" rel="nofollow">⬇ Pobierz</a>
+        <a class="btn ghost mp3" rel="nofollow">🎵 MP3</a>
+      </div>
+    </article>
+  </template>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>

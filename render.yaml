@@ -1,0 +1,12 @@
+# Render Blueprint: New + > Blueprint > pick this repo.
+services:
+  - type: web
+    name: socialfetch
+    runtime: docker
+    plan: free
+    healthCheckPath: /healthz
+    envVars:
+      - key: APP_PASSWORD
+        sync: false   # Render asks you for it during setup
+      - key: SECRET_KEY
+        generateValue: true

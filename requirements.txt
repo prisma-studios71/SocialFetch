@@ -1,0 +1,9 @@
+fastapi==0.163.1
+uvicorn[standard]==0.54.0
+httpx==0.28.1
+python-multipart==0.0.34
+curl_cffi==0.17.0
+# The extractors break whenever platforms change things, so these get
+# upgraded on every container start as well (see start.sh, AUTO_UPDATE).
+yt-dlp==2026.10.26
+gallery-dl==1.32.20
